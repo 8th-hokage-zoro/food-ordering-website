@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-// Connect to MongoDB
+
 mongoose.connect('mongodb://0.0.0.0:27017/login_demo', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -15,23 +15,23 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-// Set up body-parser
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Define a simple user schema
+
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,
 });
 const User = mongoose.model('users', userSchema);
 
-// Serve the login page
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/login.html');
 });
 
-// Handle login form submission
+
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
   
@@ -52,21 +52,21 @@ app.post('/login', async (req, res) => {
     }
 });
 
-// Handle sign-up form submission
+
 app.post('/signup', async (req, res) => {
   const { username, password } = req.body;
 
   try {
       console.log('Received sign-up request:', username, password);
 
-      // Check if the user already exists
+    
       const existingUser = await User.findOne({ username });
       if (existingUser) {
           res.send('Username already exists');
           return;
       }
 
-      // Create a new user
+    
       const newUser = new User({
           username,
           password,
@@ -81,7 +81,7 @@ app.post('/signup', async (req, res) => {
   }
 });
 
-// Start the server
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
