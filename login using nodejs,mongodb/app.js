@@ -52,8 +52,6 @@ app.post('/login', async (req, res) => {
     }
 });
 
-// ... (existing code)
-
 // Handle sign-up form submission
 app.post('/signup', async (req, res) => {
   const { username, password } = req.body;
@@ -82,9 +80,6 @@ app.post('/signup', async (req, res) => {
       res.status(500).send('An error occurred');
   }
 });
-
-// ... (existing code)
-
 
 // Start the server
 const PORT = process.env.PORT || 3000;
