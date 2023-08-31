@@ -7,30 +7,29 @@
     <link rel="stylesheet" href="g.css">
 </head>
 <body>
-    
-        <!-- <div class="close-button">&times;</div> -->
-        <div class="full">
-            
+    <div class="full">
         <div class="form">
-        <h2>SignUp</h2>
-        <div class="form-element">
-            <input type="text" placeholder="Choose Your Username">
-        </div>
+            <h2>SignUp</h2>
+            <form action="/signup" method="POST">
+                <div class="form-element">
+                    <input type="text" placeholder="Choose Your Username" name="username">
+                </div>
 
-        <div class="form-element">
-            <input type="password" placeholder="Enter password">
-        </div>
-        <div class="form-element">
-            <input type="password" placeholder="Confirm password">
-        </div>
-            <div class="form-element">    
-                <input type="checkbox" id="remember-me">
-                  <label for="remember-me">Remember me</label>
-                 </div>
-                 <div class="form-element">    
-               <button type="submit">SignUp</button> </div>
+                <div class="form-element">
+                    <input type="password" placeholder="Enter password" name="password">
+                </div>
+                <div class="form-element">
+                    <input type="password" placeholder="Confirm password" name="confirmPassword">
+                </div>
+                <div class="form-element">    
+                    <input type="checkbox" id="remember-me" name="rememberMe">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <div class="form-element">    
+                    <button type="submit">SignUp</button>
+                </div>
+            </form>
         </div>
     </div>
-
 </body>
 </html>

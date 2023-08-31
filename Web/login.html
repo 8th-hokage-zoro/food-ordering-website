@@ -13,22 +13,25 @@
             
         <div class="form">
         <h2>Login</h2>
+        <form action="/login" method="POST">  
         <div class="form-element">
-            <input type="text" placeholder="Username">
+            <input type="text" placeholder="Username" name="username" id="username">
         </div>
 
         <div class="form-element">
-            <input type="password" placeholder="password">
+            <input type="password" placeholder="password" name="password" id="password">
         </div>
             <div class="form-element">    
                 <input type="checkbox" id="remember-me">
                   <label for="remember-me">Remember me</label>
                  </div>
-                 <div class="form-element">    
+                 <div class="form-element">
+                    
                <button type="submit">Login</button> </div>
+            </form>  
             <div class="form-element">New user? <a href="signup.html">Signup</a></div> 
         </div>
     </div>
-
+      
 </body>
 </html>
