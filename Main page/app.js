@@ -48,7 +48,7 @@ app.post('/login', async (req, res) => {
       console.log('Database query result:', user);
 
       if (user && user.password===password) {
-          res.redirect('/dashboard.html');
+          res.redirect('/dashboard/app.js');
       } else {
           res.send('Invalid credentials');
       }
