@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Restaurants</title>
+  </head>
+  <body>
+    <h1>Cities</h1>
+    <ul>
+      <% cities.forEach(city => { %>
+        <li><a href="/restaurants/<%= city %>"><%= city %></a></li>
+      <% }) %>
+    </ul>
+  </body>
+</html>
