@@ -6,8 +6,8 @@ const app=express();
 
 
 mongoose.connect('mongodb://0.0.0.0:27017/login_demo', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useNewUrlParser:true,
+  useUnifiedTopology:true,
 });
 const db=mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -53,7 +53,8 @@ app.post('/login', async (req, res) => {
           res.send('Invalid credentials');
       }
       
-  } catch (error) {
+  }
+  catch (error) {
       console.error('Error:', error);
       res.status(500).send('An error occurred');
   }
