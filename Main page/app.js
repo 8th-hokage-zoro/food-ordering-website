@@ -1,15 +1,15 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const express=require('express');
+const bodyParser=require('body-parser');
+const mongoose=require('mongoose');
 
-const app = express();
+const app=express();
 
 
 mongoose.connect('mongodb://0.0.0.0:27017/login_demo', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-const db = mongoose.connection;
+const db=mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
   console.log('Connected to MongoDB');
@@ -30,24 +30,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-const userSchema = new mongoose.Schema({
-  username: String,
-  password: String,
+const userSchema=new mongoose.Schema({
+  username:String,
+  password:String,
 });
-const User = mongoose.model('users', userSchema);
+const User=mongoose.model('users', userSchema);
 
 
 
 app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password }=req.body;
 
   try {
       console.log('Received credentials:', username, password);
 
-      const user = await User.findOne({ username });
+      const user=await User.findOne({ username });
       console.log('Database query result:', user);
 
-      if (user && user.password === password) {
+      if (user && user.password===password) {
           res.redirect('/dashboard.html');
       } else {
           res.send('Invalid credentials');
@@ -62,20 +62,20 @@ app.post('/login', async (req, res) => {
 
 
 app.post('/signup', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password }=req.body;
 
   try {
       console.log('Received sign-up request:', username, password);
 
     
-      const existingUser = await User.findOne({ username });
+      const existingUser=await User.findOne({ username });
       if (existingUser) {
           res.send('Username already exists');
           return;
       }
 
     
-      const newUser = new User({
+      const newUser=new User({
           username,
           password,
       });
@@ -90,7 +90,7 @@ app.post('/signup', async (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT=process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 })
