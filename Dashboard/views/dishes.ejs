@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dishes</title>
+</head>
+<body>
+<h1><%= restaurant.name %> Dishes</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Ingredients</th>
+        <th>Rating</th>
+        <th>Picture</th>
+        <th>Cost</th>
+    </tr>
+    <% restaurant.dishes.forEach(dish => { %>
+        <tr>
+            <td><%= dish.name %></td>
+            <td><%= dish.ingredients.join(', ') %></td>
+            <td><%= dish.rating %></td>
+            <td><img src="<%= dish.picture %>" alt="<%= dish.name %>"></td>
+            <td><%= dish.cost %></td>
+        </tr>
+    <% }); %>
+</table>
+</body>
+</html>

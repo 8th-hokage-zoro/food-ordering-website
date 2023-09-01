@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cities</title>
+</head>
+<body>
+<h1>Restaurants</h1>
+<ul>
+    <% restaurants.forEach(restaurant => 
+    { 
+      %>
+        <li><a href="/restaurants/<%= restaurant.city %>"><%= restaurant.city %></a></li>
+      <% 
+  });%>
+</ul>
+</body>
+</html>
