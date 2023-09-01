@@ -48,7 +48,7 @@ app.post('/login', async (req, res) => {
       console.log('Database query result:', user);
 
       if (user && user.password === password) {
-          res.send('Login successful');
+          res.redirect('/dashboard.html');
       } else {
           res.send('Invalid credentials');
       }
@@ -82,7 +82,7 @@ app.post('/signup', async (req, res) => {
 
       await newUser.save();
 
-      res.send('Sign-up successful');
+      res.redirect('/login.html');
   } catch (error) {
       console.error('Error:', error);
       res.status(500).send('An error occurred');
