@@ -2,7 +2,8 @@ const express=require('express');
 const mongoose=require('mongoose');
 const ejs=require('ejs');
 
-mongoose.connect('mongodb://0.0.0.0:27017/test',{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect('mongodb://0.0.0.0:27017/test',
+                 {useNewUrlParser:true,useUnifiedTopology:true});
 
 const restaurantSchema=new mongoose.Schema({
   city:String,
